@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c">
+
+    <import resource="toshiba_context.xml"/>
+    <import resource="sony_context.xml"/>
+
+    <bean id="action_replacer" class="ru.javabegin.training.spring.impls.robot.ActionReplacer"/>
+
+    <bean id="t1000_simple" class="ru.javabegin.training.spring.impls.robot.ModelT1000"/>
+
+    <bean id="t1000_construct" class="ru.javabegin.training.spring.impls.robot.ModelT1000">
+        <constructor-arg ref="sonyHand"/>
+        <constructor-arg ref="sonyHead"/>
+        <constructor-arg ref="sonyLeg"/>
+        <property name="color" value="gold"/>
+        <property name="year" value="1982"/>
+        <property name="soundEnabled" value="true"/>
+    </bean>
+
+    <bean id="t1000_p_c" class="ru.javabegin.training.spring.impls.robot.ModelT1000"
+          c:hand-ref="sonyHand"
+          c:head-ref="toshibaHead"
+          c:leg-ref="toshibaLeg"
+          p:color="red"
+          p:year="1999"
+          p:soundEnabled="true"/>
+
+
+    <bean id="t1000_prototype" class="ru.javabegin.training.spring.impls.robot.ModelT1000" scope="prototype">
+        <constructor-arg ref="sonyHand"/>
+        <constructor-arg ref="toshibaHead"/>
+        <constructor-arg ref="toshibaLeg"/>
+    </bean>
+
+    <bean id="t1000_replacer" class="ru.javabegin.training.spring.impls.robot.ModelT1000">
+        <constructor-arg ref="sonyHand"/>
+        <constructor-arg ref="toshibaHead"/>
+        <constructor-arg ref="toshibaLeg"/>
+
+        <replaced-method name="action" replacer="action_replacer"/>
+    </bean>
+
+</beans>
