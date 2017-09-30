@@ -1,4 +1,4 @@
-package ru.javabegin.training.spring.start;
+package ru.javabegin.training.spring.core.start;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

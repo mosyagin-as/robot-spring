@@ -4,8 +4,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
        default-lazy-init="true">
 
-    <bean id="toshibaHand" class="ru.javabegin.training.spring.impls.toshiba.ToshibaHand"/>
-    <bean id="toshibaHead" class="ru.javabegin.training.spring.impls.toshiba.ToshibaHead"/>
-    <bean id="toshibaLeg" class="ru.javabegin.training.spring.impls.toshiba.ToshibaLeg"/>
+    <bean id="toshibaHand" class="ru.javabegin.training.spring.core.impls.toshiba.ToshibaHand"/>
+    <bean id="toshibaHead" class="ru.javabegin.training.spring.core.impls.toshiba.ToshibaHead"/>
+    <bean id="toshibaLeg" class="ru.javabegin.training.spring.core.impls.toshiba.ToshibaLeg"/>
 
 </beans>

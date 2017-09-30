@@ -1,12 +1,12 @@
-package ru.javabegin.training.spring.start;
+package ru.javabegin.training.spring.core.start;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import ru.javabegin.training.spring.impls.conveyor.T1000Conveyor;
-import ru.javabegin.training.spring.impls.robot.ModelT1000;
-import ru.javabegin.training.spring.interfaces.Robot;
+import ru.javabegin.training.spring.core.impls.conveyor.T1000Conveyor;
+import ru.javabegin.training.spring.core.impls.robot.ModelT1000;
+import ru.javabegin.training.spring.core.interfaces.Robot;
 
 
 public class RobotConstructor {

@@ -1,11 +1,11 @@
-package ru.javabegin.training.spring.impls.robot;
+package ru.javabegin.training.spring.core.impls.robot;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ru.javabegin.training.spring.interfaces.Hand;
-import ru.javabegin.training.spring.interfaces.Head;
-import ru.javabegin.training.spring.interfaces.Leg;
-import ru.javabegin.training.spring.interfaces.Robot;
+import ru.javabegin.training.spring.core.interfaces.Hand;
+import ru.javabegin.training.spring.core.interfaces.Head;
+import ru.javabegin.training.spring.core.interfaces.Leg;
+import ru.javabegin.training.spring.core.interfaces.Robot;
 
 /**
  * Created by Ajantis
