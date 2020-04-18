@@ -128,16 +128,4 @@ public class ModelT1000 implements Robot {
         logger.info("destroy ModelT100");
     }
 
-
-//    @Override
-//    public String toString() {
-//        return "ModelT1000{" +
-//                "hand=" + hand +
-//                ", head=" + head +
-//                ", leg=" + leg +
-//                ", color='" + color + '\'' +
-//                ", year=" + year +
-//                ", soundEnabled=" + soundEnabled +
-//                '}';
-//    }
 }

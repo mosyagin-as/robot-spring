@@ -3,8 +3,6 @@ package ru.javabegin.training.spring.autowire.impls.robot;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
@@ -20,20 +18,24 @@ import ru.javabegin.training.spring.autowire.interfaces.Robot;
  */
 @Component
 public class ModelT1000 implements Robot {
-    private static Logger logger = LoggerFactory.getLogger(ModelT1000.class);
+    private static final Logger logger = LoggerFactory.getLogger(ModelT1000.class);
 
-    @Autowired
     private Hand hand;
 
-    @Autowired
     private Head head;
 
-    @Autowired
     private Leg leg;
 
     private String color;
     private int year;
     private boolean soundEnabled;
+
+    @Autowired
+    public ModelT1000(Hand hand, Head head, Leg leg) {
+        this.hand = hand;
+        this.head = head;
+        this.leg = leg;
+    }
 
     @Bean
     @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
@@ -41,12 +43,7 @@ public class ModelT1000 implements Robot {
         return new ModelT1000();
     }
 
-    public ModelT1000() {}
-
-    public ModelT1000(Hand hand, Head head, Leg leg) {
-        this.hand = hand;
-        this.head = head;
-        this.leg = leg;
+    public ModelT1000() {
     }
 
     public ModelT1000(Hand hand, Head head, Leg leg, String color, int year, boolean soundEnabled) {
@@ -60,23 +57,19 @@ public class ModelT1000 implements Robot {
 
     public void action() {
         logger.info("--------||---------");
-        logger.info("T1000 is dancing");
         if (hand != null) {
             hand.catchSomething();
-        }
-        else {
+        } else {
             logger.info("hand is null");
         }
         if (head != null) {
             head.calc();
-        }
-        else {
+        } else {
             logger.info("head is null");
         }
         if (leg != null) {
             leg.go();
-        }
-        else {
+        } else {
             logger.info("leg is null");
         }
 
@@ -88,14 +81,16 @@ public class ModelT1000 implements Robot {
 
 
     public void dance() {
-
+        logger.info("--------||---------");
+        logger.info("T1000 is dancing");
+        logger.info("-------------------");
     }
 
     public Hand getHand() {
         return hand;
     }
 
-//    @Required
+    //    @Required
     public void setHand(Hand hand) {
         this.hand = hand;
     }
@@ -104,7 +99,7 @@ public class ModelT1000 implements Robot {
         return head;
     }
 
-//    @Required
+    //    @Required
     public void setHead(Head head) {
         this.head = head;
     }
@@ -113,7 +108,7 @@ public class ModelT1000 implements Robot {
         return leg;
     }
 
-//    @Required
+    //    @Required
     public void setLeg(Leg leg) {
         this.leg = leg;
     }
@@ -149,17 +144,4 @@ public class ModelT1000 implements Robot {
     public void destroyObject() {
         logger.info("destroy ModelT100");
     }
-
-
-//    @Override
-//    public String toString() {
-//        return "ModelT1000{" +
-//                "hand=" + hand +
-//                ", head=" + head +
-//                ", leg=" + leg +
-//                ", color='" + color + '\'' +
-//                ", year=" + year +
-//                ", soundEnabled=" + soundEnabled +
-//                '}';
-//    }
 }
